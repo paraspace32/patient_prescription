@@ -1,0 +1,21 @@
+<p>
+  <strong>Subject:</strong>
+  <%= @prescription_medication.subject %>
+</p>
+
+<p>
+  <strong>Medication:</strong>
+  <%= @prescription_medication.medication %>
+</p>
+
+<p>
+  <strong>Doctor Name:</strong>
+  <%= @prescription_medication.doctor_name %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @prescription_medication.created_at %>
+</p>
+
+<%= link_to 'Back', patient_path(@patient) %>

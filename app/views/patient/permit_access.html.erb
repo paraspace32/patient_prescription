@@ -1,0 +1,29 @@
+<% if @rv.blank? %>
+  No requests
+<% else %>
+  <h2>Request List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Requested by</th>
+        <th>Profession</th>
+        <th>Requested at</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @rv.each do |permission| %>
+        <tr>
+          <td><%= get_doctor_name(permission).name %></td>
+          <td><%= get_doctor_name(permission).type %></td>
+          <td><%= permission.created_at %></td>
+          <td><%= button_to 'Permit', permit_patient_path(permission) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+<% end %>
+
+<%= link_to 'Back', patient_path(@patient) %>

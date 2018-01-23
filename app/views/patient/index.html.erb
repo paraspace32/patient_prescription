@@ -1,0 +1,22 @@
+<h1>Patients List</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.name %></td>
+        <td><%= patient.email %></td>
+        <td><%= link_to 'Show', patient %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

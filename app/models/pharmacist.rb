@@ -1,0 +1,2 @@
+class Pharmacist < User
+end
