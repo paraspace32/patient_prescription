@@ -20,7 +20,7 @@ class PrescriptionMedicationsController < ApplicationController
 
     respond_to do |format|
       if @prescription_medication.save
-        format.html { redirect_to @patient, notice: 'Prescription medication was successfully created.' }
+        format.html { redirect_to @patient, notice: 'Prescription was successfully created.' }
       else
         format.html { render :new }
       end
@@ -30,7 +30,7 @@ class PrescriptionMedicationsController < ApplicationController
   def destroy
     @prescription_medication.destroy
     respond_to do |format|
-      format.html { redirect_to @patient, notice: 'Prescription medication was successfully destroyed.' }
+      format.html { redirect_to @patient, notice: 'Prescription was successfully destroyed.' }
     end
   end
 

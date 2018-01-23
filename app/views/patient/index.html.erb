@@ -1,22 +1,28 @@
-<h1>Patients List</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<h1>Hospital System</h1>
 
-  <tbody>
-    <% @patients.each do |patient| %>
+<% if current_user and current_user.type != 'Patient' %>
+  <h2>Patients List</h2>
+  <table>
+    <thead>
       <tr>
-        <td><%= patient.name %></td>
-        <td><%= patient.email %></td>
-        <td><%= link_to 'Show', patient %></td>
+        <th>Name</th>
+        <th>Email</th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @patients.each do |patient| %>
+        <tr>
+          <td><%= patient.name %></td>
+          <td><%= patient.email %></td>
+          <td><%= link_to 'Show', patient %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+<% elsif current_user and current_user.type == 'Patient' %>
+  <%= render partial: 'patient' %>
+<% end %>
