@@ -45,9 +45,15 @@
   <%= link_to 'Write a Prescription', new_patient_prescription_medication_path(@patient) %>
   <% if !@access %>
     <%= button_to 'Access Request', access_request_patient_path, method: :post %>
+  <% elsif @access.permit ==  false %>
+    <strong> Prescription view requested </strong>
   <% end %>
-<% elsif current_user.type == 'Pharmacist' and !@access %>
+<% elsif current_user.type == 'Pharmacist' %>
+  <% if !@access %>
     <%= button_to 'Access Request', access_request_patient_path, method: :post %>
+  <% elsif @access.permit ==  false %>
+    <strong> Prescription view requested </strong>
+  <% end %>
 <% elsif current_user.type == 'Patient' %>
   <%= link_to 'Check requests', permit_access_patient_path(@patient) %>
 <% end %>
