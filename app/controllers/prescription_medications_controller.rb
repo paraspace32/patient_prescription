@@ -37,11 +37,19 @@ class PrescriptionMedicationsController < ApplicationController
   private
 
   def set_prescription_medication
-    @prescription_medication = PrescriptionMedication.find(params[:id])
+    @prescription_medication = PrescriptionMedication.find(params[:id]) rescue nil
+
+    if @prescription_medication.nil?
+      redirect_to root_path, notice: 'Prescription not present'
+    end
   end
 
   def set_patient
-    @patient = Patient.find(params[:patient_id])
+    @patient = Patient.find(params[:patient_id]) rescue nil
+
+    if @patient.nil?
+      redirect_to root_path, notice: 'Patient not present'
+    end
   end
 
   def prescription_medication_params

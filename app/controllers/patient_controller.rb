@@ -31,7 +31,10 @@ class PatientController < ApplicationController
   private
 
   def set_patient
-    @patient = Patient.find(params[:id])
+    @patient = Patient.find(params[:id]) rescue nil
+    if @patient.nil?
+      redirect_to root_path, notice: 'Patient not present'
+    end
   end
 
   def check_patient_for_permit_access
@@ -47,7 +50,12 @@ class PatientController < ApplicationController
   end
 
   def check_patient_for_permit
-    @permission = Permission.find(params[:id])
+    @permission = Permission.find(params[:id]) rescue nil
+
+    if @permission.nil?
+      redirect_to root_path, notice: 'No permission found'
+    end
+
     if current_user.id != @permission.patient_id
       redirect_to root_path, notice: 'You are not authorized'
     end
