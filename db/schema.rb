@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180123061024) do
+ActiveRecord::Schema.define(version: 20180124070527) do
 
   create_table "permissions", force: :cascade do |t|
-    t.integer  "patient_id", limit: 4
-    t.integer  "user_id",    limit: 4
-    t.boolean  "permit",               default: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.integer  "patient_id",     limit: 4
+    t.integer  "user_id",        limit: 4
+    t.boolean  "permit",                     default: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "requestee",      limit: 255
+    t.string   "requestee_type", limit: 255
   end
 
   add_index "permissions", ["patient_id", "user_id"], name: "index_permissions_on_patient_id_and_user_id", unique: true, using: :btree

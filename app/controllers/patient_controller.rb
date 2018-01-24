@@ -15,7 +15,7 @@ class PatientController < ApplicationController
   end
 
   def access_request
-    @rv = Permission.create_new(params[:id], current_user.id)
+    @rv = Permission.create_new(params[:id], current_user)
     redirect_to :back, notice: 'Request has been raised'
   end
 

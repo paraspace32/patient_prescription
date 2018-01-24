@@ -14,8 +14,8 @@
     <tbody>
       <% @rv.each do |permission| %>
         <tr>
-          <td><%= get_doctor_name(permission).name %></td>
-          <td><%= get_doctor_name(permission).type %></td>
+          <td><%= permission.requestee %></td>
+          <td><%= permission.requestee_type %></td>
           <td><%= permission.created_at %></td>
           <td><%= button_to 'Permit', permit_patient_path(permission) %></td>
         </tr>
