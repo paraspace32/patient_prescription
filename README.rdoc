@@ -1,28 +1,10 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application where the User’s data can be shared only if they approve it. 
 
-Things you may want to cover:
+There are 3 types of users/roles:
+Patient/User
+Doctor
+Pharmacist
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The Patient has medical records and prescriptions. If a doctor asks for a patient’s prescription, the patient has to approve it. Same goes with the Pharmacist, if the pharmacist wants to view the patient’s prescription, the patient has to approve it. 
